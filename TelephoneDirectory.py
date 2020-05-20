@@ -3,9 +3,9 @@ import numpy as np
 T = 20
 Nsize = 18
 for t in range(T):
-    file_name = './TelephoneDirectoryF/input/input'+str(t)+'.txt'
+    file_name = '.././Tries/TelephoneDirectoryF/input/input'+str(t)+'.txt'
     ifile = open(file_name, 'w')
-    Q = 1000
+    Q = 100000
     ifile.write(str(Q)+'\n')
     nums = np.arange(2, Q+1, 1)
     np.random.shuffle(nums)

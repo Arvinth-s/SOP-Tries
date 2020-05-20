@@ -114,48 +114,31 @@ string cstr(char arr[])
 int main()
 {
     fastio;
-    for(ll fno = 0; fno < 21; fno++)
+    node *root = createNode();
+    char Mx[Nsize];
+    int flag[Nsize] = {0};
+    for(int i = 0; i < Nsize;i++)Mx[i]='0';
+    int t;
+    cin>>t;
+    while(t--)
     {
-        node *root = createNode();
-        char Mx[Nsize];
-        int flag[Nsize] = {0};
-        string fname = ".././Tries/TelephoneDirectoryF/";
-        string ifname = fname+"input/input"+str(fno)+".txt";
-        string ofname = fname+"output/output"+str(fno)+".txt";
-        ifstream ifile(ifname);
-        ofstream ofile(ofname);
-        if(!ifile)
+        int q;
+        cin>>q;
+        string num;
+        if(q<4)
         {
-            cout<<"file doesn't exist";
-            exit(0);
+            cin>>num;
         }
-        for(int i = 0; i < Nsize;i++)Mx[i]='0';
-        int t;
-        ifile>>t;
-        // cin>>t;
-        while(t--)
+        string ans="";
+        switch(q)
         {
-            int q;
-            ifile>>q;
-            // cin>>q;
-            string num;
-            if(q<4)
-            {
-                ifile>>num;
-                // cin>>num;
-            }
-            string ans="";
-            switch(q)
-            {
-                case 1:insert(num, root, flag);assert(check(num, root, flag)==true);break;
-                case 2:update(num, flag);break;
-                case 3:(check(num, root, flag))?ans="YES\n":ans="NO\n";break;
-                case 4:maximum(root, flag, Mx);ans = cstr(Mx) + "\n";break;
-                default: cout<<"invalid output";exit(0);
-            }
-            ofile<<ans;
+            case 1:insert(num, root, flag);assert(check(num, root, flag)==true);break;
+            case 2:update(num, flag);break;
+            case 3:(check(num, root, flag))?ans="YES\n":ans="NO\n";break;
+            case 4:maximum(root, flag, Mx);ans = cstr(Mx) + "\n";break;
+            default: cout<<"invalid output";exit(0);
         }
+        cout<<ans;
     }
-    cout<<"Completed!\n";
     return 0;
 }
