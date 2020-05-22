@@ -1,6 +1,6 @@
 #OM NAMO NARAYANA
 import numpy as np
-fname = '.././Tries/MaxSubSumF/input/input'
+fname = '../../.././Tries/MaxSubSumF/input/input'
 T = 20
 Nmax = 30
 for t in range(T):
